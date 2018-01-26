@@ -1,13 +1,12 @@
 var $j = jQuery.noConflict();
-// $j(document).ready(function(){
-	$j('head').load('/head.html');
-	$j('#nav-bar').load('/nav.html');
+var container = $j('#main_container');
+$j('head').load('/head.html');
+$j('body').prepend($j('<div>').load('/nav.html'));
 
-	// $j.ajax({
-	// 	url: 'nav.html', 
-	// 	type: 'GET',
-	// 	onSuccess: function(response){
-	// 		console.log(response);
-	// 	}
-	// });
-// });
+/* Change the div content to the page selected */
+$j('.link').on('click', function(e){
+	console.log($j(this));
+	if($j(this).data('name') == 'smk'){
+		$j(container).load('/smk/index.html');
+	}
+});
